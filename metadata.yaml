@@ -1,0 +1,47 @@
+"":
+    public:
+        small_trips::
+            censor_dims: False
+            max_ids: 1
+            row_id:
+                private_id: True
+                type: int
+            VendorID:
+                type: int
+            tpep_pickup_datetime:
+                type: datetime
+            tpep_dropoff_datetime:
+                type: datetime
+            Passenger_count:
+                type: int
+                lower: 0
+            Trip_distance:
+                type: float
+            PULocationID:
+                type: int
+            DOLocationID:
+                type: int
+            RateCodeID:
+                type: int
+            Store_and_fwd_flag:
+                type: string
+            Payment_type:
+                type: int
+            Fare_amount:
+                type: float
+            Extra:
+                type: float
+            MTA_tax:
+                type: float
+            Improvement_surcharge:
+                type: float
+            Tip_amount:
+                type: float
+            Tolls_amount:
+                type: float
+            Total_amount:
+                type: float
+            Congestion_Surcharge:
+                type: float
+            Airport_fee:
+                type: float
