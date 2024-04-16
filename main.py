@@ -40,6 +40,7 @@ def noisy_dataframe(df, meta_path):
     for column in laplace_columns:
         query              = 'SELECT %s, COUNT(*) FROM MySchema.MyTable GROUP BY %s' % (column, column)
         noisy_laplace_data = reader.execute(query)
+        noisy_laplace_data = noisy_laplace_data[1:]
         df_noisy[column]   = [row[0] for row in noisy_laplace_data]
     
     # Recalculate Summary Statsitics from noisy data
