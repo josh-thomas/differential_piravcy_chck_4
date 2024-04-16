@@ -1,0 +1,48 @@
+# Schema
+"":
+  MySchema:
+    MyTable:
+      row_privacy: True
+      max_ids: 1
+      VendorID:
+        type: int
+      tpep_pickup_datetime:
+        type: datetime 
+        # format: "%Y-%m-%dT%H:%M:%SZ"
+      tpep_dropoff_datetime:
+        type: datetime
+        # format: "%Y-%m-%dT%H:%M:%SZ"
+      passenger_count:
+        type: int
+      trip_distance:
+        type: float
+      RatecodeID:
+        type: int  
+      store_and_fwd_flag:
+        type: string
+      PULocationID:
+        type: int
+      DOLocationID:
+        type: int
+      payment_type:
+        type: int
+      fare_amount:
+        type: float
+      extra:
+        type: int
+      mta_tax:
+        type: float
+      tip_amount:
+        type: float
+      tolls_amount:
+        type: int
+      improvement_surcharge:
+        type: float
+      total_amount:
+        type: float
+      congestion_fee:
+        type: int
+        nullable: True
+      airport_fee:
+        type: int
+        nullable: True
