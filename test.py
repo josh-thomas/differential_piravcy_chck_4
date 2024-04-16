@@ -57,8 +57,8 @@ def noisy_dataframe(df):
 
 privacy = Privacy(epsilon=1.41, delta=0.1)
 
-csv_path  = 'small_trips.csv'
-meta_path = 'small_trips.yaml'
+csv_path  = 'Documents/GitHub/differential_piravcy_chck_4/small_trips.csv'
+meta_path = 'Documents/GitHub/differential_piravcy_chck_4/small_trips.yaml'
 #print("hello")
 
 df = pd.read_csv(csv_path, nrows=100000)
@@ -87,6 +87,7 @@ for i in range(5):
     start_noise = time.time()
     #print(noise_queries[i])
     temp = pd.DataFrame(data=reader.execute(noise_queries[i]))
+    print(f'temp b4 clip is {temp}')
     temp = temp.drop([0])
     noise_dfs.append(temp)
     
@@ -107,6 +108,7 @@ for j in range(5):
         ndf = noise_dfs[k]
         file = 'noise' + str(k) + '.png'
         k += 1
+        print(ndf)
     else:
         ndf = non_noise_dfs[m]
         file = 'no_noise' + str(m) + '.png'
@@ -114,8 +116,8 @@ for j in range(5):
     print(f'j is {j}, k is {k}, m is {m}')
     x = ((ndf.iloc[:,0]).astype(object)).astype(str)
     fig, ax = plt.subplots(figsize = (8,8))
-    print(ndf)
-    print((noise_dfs[j]))
+    #
+    #print((noise_dfs[j]))
     ax.bar(x, ndf.iloc[:,1], width= .8)
     ax.xaxis.set_tick_params(pad = 5)
     ax.yaxis.set_tick_params(pad = 10)
@@ -123,7 +125,8 @@ for j in range(5):
     ax.set_title(titles[j],loc ='center' )
 
     plt.savefig(file)
-
+print(f'non_noise 4 is {non_noise_dfs[4]}')
+print(f'noise 4 is {noise_dfs[4]}')
 # print(results2.dtypes)
 # results1.plot(kind = 'hist')
 # results2.plot(kind = 'hist')

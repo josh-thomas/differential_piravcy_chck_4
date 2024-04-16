@@ -16,7 +16,8 @@
             trip_distance:
                 type: float
                 lower: 0
-                upper: 100000
+                upper: 1000
+                sensitivity: 100
             PULocationID:
                 type: int
             DOLocationID:
@@ -30,7 +31,8 @@
             Fare_amount:
                 type: float
                 lower: 0
-                upper: 1000000
+                upper: 1000
+                sensitivity: 100
             Extra:
                 type: float
             MTA_tax:
