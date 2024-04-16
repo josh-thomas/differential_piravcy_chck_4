@@ -1,11 +1,9 @@
 "":
     public:
-        small_trips::
+        small_trips:
             censor_dims: False
             max_ids: 1
-            row_id:
-                private_id: True
-                type: int
+            row_privacy: True
             VendorID:
                 type: int
             tpep_pickup_datetime:
@@ -15,8 +13,10 @@
             Passenger_count:
                 type: int
                 lower: 0
-            Trip_distance:
+            trip_distance:
                 type: float
+                lower: 0
+                upper: 100000
             PULocationID:
                 type: int
             DOLocationID:
@@ -29,6 +29,8 @@
                 type: int
             Fare_amount:
                 type: float
+                lower: 0
+                upper: 1000000
             Extra:
                 type: float
             MTA_tax:
