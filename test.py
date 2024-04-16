@@ -86,7 +86,10 @@ for i in range(5):
     reader = snsql.from_df(df_noisy, privacy=privacy, metadata=meta_path)
     start_noise = time.time()
     #print(noise_queries[i])
-    noise_dfs.append(pd.DataFrame(data=reader.execute(noise_queries[i])))
+    temp = pd.DataFrame(data=reader.execute(noise_queries[i]))
+    temp = temp.drop([0])
+    noise_dfs.append(temp)
+    
     end_noise = time.time()
     noise_times.append(start_noise - end_noise)
 
