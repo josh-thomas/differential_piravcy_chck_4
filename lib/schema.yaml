@@ -6,12 +6,6 @@
       max_ids: 1
       VendorID:
         type: int
-      tpep_pickup_datetime:
-        type: datetime 
-        # format: "%Y-%m-%dT%H:%M:%SZ"
-      tpep_dropoff_datetime:
-        type: datetime
-        # format: "%Y-%m-%dT%H:%M:%SZ"
       passenger_count:
         type: int
       trip_distance:

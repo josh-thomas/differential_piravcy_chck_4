@@ -17,8 +17,8 @@ def read_files(path):
         file    = os.path.join(path, file_name)
         print(file)
         df = pd.read_csv(file)
-        df['tpep_pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'].str[:-1], utc=True)
-        df['tpep_dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime'].str[:-1], utc=True)
+        # df['tpep_pickup_datetime'] = df['tpep_pickup_datetime'].dt.strftime('%Y-%m-%d %H:%M:%S')
+        # df['tpep_dropoff_datetime'] = df['tpep_dropoff_datetime'].dt.strftime('%Y-%m-%d %H:%M:%S')
         frames.append(df)
     all_data = pd.concat(frames, ignore_index=True)
     return all_data
@@ -34,8 +34,8 @@ Description:   This function take a dataframe of infromation for trusted sources
 '''
 def noisy_dataframe(df, meta_path):
     reader = snsql.from_df(df, privacy=privacy, metadata=meta_path)
-    laplace_columns    = ["tpep_pickup_datetime", "tpep_dropoff_datetime", "Passenger_count", "Trip_distance", 
-                          "PULocationID", "DOLocationID", "Fare_amount", "Extra", "Tip_amount", "Tolls_amount"]
+    laplace_columns    = ["passenger_count", "trip_distance", 
+                          "PULocationID", "DOLocationID", "fare_amount", "extra", "tip_amount", "tolls_amount"]
     df_noisy           = df.copy(deep=True)
     for column in laplace_columns:
         query              = 'SELECT %s, COUNT(*) FROM MySchema.MyTable GROUP BY %s' % (column, column)
