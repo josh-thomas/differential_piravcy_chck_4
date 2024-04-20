@@ -17,7 +17,6 @@
                 type: float
                 lower: 0
                 upper: 1000
-                sensitivity: 100
             PULocationID:
                 type: int
             DOLocationID:
@@ -32,7 +31,6 @@
                 type: float
                 lower: 0
                 upper: 1000
-                sensitivity: 100
             Extra:
                 type: float
             MTA_tax:
@@ -49,3 +47,7 @@
                 type: float
             Airport_fee:
                 type: float
+            pickup_hour:
+                type: int
+            drop_off:
+                type: int
